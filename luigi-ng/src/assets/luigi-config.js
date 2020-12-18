@@ -35,21 +35,25 @@
 }([function (e, t) {
   Luigi.setConfig({
     navigation: {
-      nodes: () => [{
-        pathSegment: "home",
-        label: "Home",
-        children: [{
-          pathSegment: "hw",
-          label: "Hello World!",
-          icon: 'nutrition-activity',
-          viewUrl: "/assets/basicMicroFrontend.html"
-        }, {
-          pathSegment: "one",
-          label: "Section one",
-          icon: 'paper-plane',
-          viewUrl: "/assets/basicMicroFrontend.html#one"
-        }, {pathSegment: "two", label: "Section two", icon : 'cloud', viewUrl: "/assets/basicMicroFrontend.html#two"}]
-      }]
+      nodes: menu()
     }, routing: {useHashRouting: !0}, settings: {appLoadingIndicator: {hideAutomatically: !0}}
   })
 }]);
+
+function menu() {
+  return [{
+    pathSegment: "home",
+    label: "Home",
+    children: [{
+      pathSegment: "hw",
+      label: "Hello World!",
+      icon: 'nutrition-activity',
+      viewUrl: "/assets/basicMicroFrontend.html"
+    }, {
+      pathSegment: "one",
+      label: "Section one",
+      icon: 'paper-plane',
+      viewUrl: "/assets/basicMicroFrontend.html#one"
+    }, {pathSegment: "two", label: "Section two", icon : 'cloud', viewUrl: "/assets/basicMicroFrontend.html#two"}]
+  }]
+}

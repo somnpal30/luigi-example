@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "luigi-ng": {
+    "luigi-ng-poc": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,8 +13,8 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/luigi-ng",
-            "index": "src/angular.html",
+            "outputPath": "dist/luigi-ng-poc",
+            "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
@@ -22,34 +22,26 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/index.html",
-              "src/logout.html",
-              {
-                "glob": "fundamental-styles.css",
-                "input": "node_modules/fundamental-styles/dist",
-                "output": "/fundamental-styles"
-              },
-              {
-                "glob": "*",
-                "input": "node_modules/@sap-theming/theming-base-content",
-                "output": "/fonts"
-              },
               {
                 "glob": "**",
-                "input": "node_modules/@luigi-project/core-ie11",
+                "input": "node_modules/@luigi-project/core",
                 "output": "/luigi-core"
               },
               {
-                "glob": "luigi-client.js",
-                "input": "node_modules/@luigi-project/client-ie11",
+                "glob": "**",
+                "input": "node_modules/@luigi-project/client",
                 "output": "/luigi-client"
               }
             ],
             "styles": [
               "src/styles.css",
-              "node_modules/fundamental-styles/dist/fundamental-styles.css"
+              "node_modules/@luigi-project/core/luigi.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/@luigi-project/core/luigi.js",
+              "node_modules/@luigi-project/client/luigi-client.js",
+              "src/assets/luigi-config.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -85,18 +77,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "luigi-ng:build"
+            "browserTarget": "luigi-ng-poc:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "luigi-ng:build:production"
+              "browserTarget": "luigi-ng-poc:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "luigi-ng:build"
+            "browserTarget": "luigi-ng-poc:build"
           }
         },
         "test": {
@@ -108,33 +100,10 @@
             "karmaConfig": "karma.conf.js",
             "assets": [
               "src/favicon.ico",
-              "src/assets",
-              "src/index.html",
-              "src/logout.html",
-              {
-                "glob": "fundamental-styles.css",
-                "input": "node_modules/fundamental-styles/dist",
-                "output": "/fundamental-styles"
-              },
-              {
-                "glob": "*",
-                "input": "node_modules/@sap-theming/theming-base-content",
-                "output": "/fonts"
-              },
-              {
-                "glob": "**",
-                "input": "node_modules/@luigi-project/core",
-                "output": "/luigi-core"
-              },
-              {
-                "glob": "luigi-client.js",
-                "input": "node_modules/@luigi-project/client",
-                "output": "/luigi-client"
-              }
+              "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "node_modules/fundamental-styles/dist/fundamental-styles.css"
+              "src/styles.css"
             ],
             "scripts": []
           }
@@ -156,19 +125,19 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "luigi-ng:serve"
+            "devServerTarget": "luigi-ng-poc:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "luigi-ng:serve:production"
+              "devServerTarget": "luigi-ng-poc:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "luigi-ng",
+  "defaultProject": "luigi-ng-poc",
   "cli": {
-    "analytics": "5282301e-5d61-4d91-b0ce-be1fd8cf1a5f"
+    "analytics": false
   }
 }

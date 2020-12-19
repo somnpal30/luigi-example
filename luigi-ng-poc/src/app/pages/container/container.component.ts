@@ -19,10 +19,6 @@ export class ContainerComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     loadLuigi();
-    // console.log(Luigi.getConfig().navigation.nodes);
-    // const node = Luigi.getConfig().navigation.nodes;
-    // console.log('testing');
-    // loadLuigiAfter();
     this.subscription
       = this.sharedDataService.currentMessage.subscribe(message => {
       console.log(message);

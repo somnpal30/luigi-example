@@ -24,6 +24,7 @@
     "@angular/router": "~10.0.9",
     "@luigi-project/client": "^1.7.0",
     "@luigi-project/core": "^1.7.0",
+    "@luigi-project/plugin-auth-oidc": "^1.7.1",
     "@ng-bootstrap/ng-bootstrap": "^8.0.0",
     "bootstrap": "^4.5.0",
     "rxjs": "~6.5.5",

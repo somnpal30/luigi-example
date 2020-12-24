@@ -4,7 +4,8 @@ import {SharedDataService} from '../../service/shared-data.service';
 
 declare var Luigi: any;
 declare var loadLuigi: any;
-declare var loadLuigiAfter: any;
+declare var loadLuigiPostLogin: any;
+
 
 @Component({
   selector: 'app-container',
@@ -18,11 +19,12 @@ export class ContainerComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    loadLuigi();
-    this.subscription
+
+    loadLuigiPostLogin();
+    /*this.subscription
       = this.sharedDataService.currentMessage.subscribe(message => {
       console.log(message);
-    });
+    });*/
   }
 
   ngOnDestroy(): void {
